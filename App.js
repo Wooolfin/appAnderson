@@ -1,6 +1,26 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
+
+import { useState } from 'react';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image} from 'react-native';
 
 export default function App() {
+
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleLogin = () => {
+    let campoEmail;
+    let campoSenha;
+    campoEmail = email;
+    campoSenha = password;
+
+    if (email === '' || password === ''){
+      setErrorMessage('Por favor, preencha todos os campos!');
+    }
+    }
+  
+
   return (
     <View style={estilos.container}>
       <Image
@@ -12,14 +32,21 @@ export default function App() {
       </Text>      
     
       <TextInput 
+      value={email}
       style={estilos.input}
-      placeholder="Usuario:"
-      keyboardType='default'/>
-     
+      placeholder="Email:"
+      keyboardType='default'
+      onChangeText={(text)=>setEmail(text)}/>
+
       <TextInput 
+      value={password}
       style={estilos.input}
       placeholder="Senha:"
-      secureTextEntry={true}/> 
+      secureTextEntry={true}
+      onChangeText={(text)=>setPassword(text)}
+      /> 
+      
+      <Text>{errorMessage}</Text>
 
       <TouchableOpacity style={estilos.eSenha}>
         <Text style={estilos.textoeSenha}>
@@ -27,16 +54,27 @@ export default function App() {
         </Text>
       </TouchableOpacity>
       
-      <TouchableOpacity style={estilos.button}>
+      <TouchableOpacity 
+      style={estilos.button}
+      onPress={handleLogin}
+      >
         <Text style={estilos.textoButton}>
           Entrar
         </Text>
       </TouchableOpacity>
 
+      <TouchableOpacity 
+      style={estilos.buttonCadastre}
+      onPress={handleLogin}
+      >
+        <Text style={estilos.textoButtonCadastre}>
+          Cadastre-se
+        </Text>
+      </TouchableOpacity>
 
     </View>
-  );
-}
+  )
+};
 
 const estilos = StyleSheet.create({
   container: {
@@ -45,9 +83,6 @@ const estilos = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 16
-  },
-  imagem:{
-
   },
   texto:{
     color: "#000",
@@ -72,16 +107,35 @@ const estilos = StyleSheet.create({
     alignItems: 'center',
     width: "50%",
   },
+
+  buttonCadastre:{
+    borderWidth: 3,
+    borderColor: '#B2A7A7',
+    backgroundColor: "#DDDDDD",
+    paddingHorizontal: 24,
+    //paddingVertical: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+    width: "50%",
+  },
+
   textoButton:{
     color: "#FFF",
     fontSize: 25,
     fontStyle: 'Jockey One',
   },
-  eSenha:{
-
+  textoButtonCadastre:{
+    color: "#EF2424",
+    fontSize: 25,
+    fontStyle: 'Jockey One',
   },
   textoeSenha:{
     textDecorationLine:"underline",
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  errorCampo:{
+    color: "#F00",
     fontWeight: 'bold',
     fontSize: 16,
   }
