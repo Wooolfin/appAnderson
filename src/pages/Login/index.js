@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextInput, View, TouchableOpacity, Text} from 'react-native';
+import { TextInput, View, TouchableOpacity, Text, Image} from 'react-native';
 import styles from './styles';
 
 
@@ -33,6 +33,7 @@ export default function Login({navigation}) {
     return (
         <View style={styles.container}>
             
+            <Image source={require('./../../../assets/image2.png')}/>
 
             <Text style={styles.texto}>
                 Login
@@ -41,14 +42,14 @@ export default function Login({navigation}) {
             <TextInput
                 value={email}
                 style={styles.input}
-                placeholder="Email:"
+                placeholder="Usuário"
                 keyboardType='default'
                 onChangeText={(text) => setEmail(text)} />
 
             <TextInput
                 value={password}
                 style={styles.input}
-                placeholder="Senha:"
+                placeholder="Senha"
                 secureTextEntry={true}
                 onChangeText={(text) => setPassword(text)}
             />

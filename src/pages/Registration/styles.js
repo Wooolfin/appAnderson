@@ -12,7 +12,8 @@ export default StyleSheet.create({
     },
     imagem: {
         marginBottom: 25,
-        marginTop: 24
+        marginTop: 24,
+        height: 30
     },
     texto: {
         color: "#000",

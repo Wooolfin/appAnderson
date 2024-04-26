@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import styles from './styles';
 
 export default function Registration({navigation}) {
@@ -40,7 +41,7 @@ export default function Registration({navigation}) {
     return (
         <ScrollView>
             <View style={styles.container}>
-            
+                <Image style={styles.imagem} source={require('./../../../assets/image2.png')}/>
 
                 <Text style={styles.textCampoDigitavel}>
                     Nome completo
@@ -116,6 +117,6 @@ export default function Registration({navigation}) {
                 </TouchableOpacity>
 
             </View>
-        </ScrollView>
+            </ScrollView>
     )
 };
