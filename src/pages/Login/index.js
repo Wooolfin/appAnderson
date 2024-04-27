@@ -10,7 +10,10 @@ export default function Login({navigation}) {
 }
 
     function acessHome() {
-        navigation.navigate('Home');
+        navigation.navigate(
+            'Home',
+            {E_mail: email, Senha: password}
+    );
 }
 
 
