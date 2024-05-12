@@ -1,21 +1,89 @@
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-export default function Home({route, navigation}) {
+export default function Home({ navigation }) {
 
-    const { E_mail } = route.params; 
-    const { Senha } = route.params;
+  function acessDeliveryList() {
+    navigation.navigate('DeliveryList');
+  }
+  return (
+    <View style={styles.container}>
+      {/* <View>
+        <Text style={styles.textoDefault}>
+          E-mail: {E_mail}
+        </Text>
+        <Text style={styles.textoDefault}>
+          Senha: {Senha}
+        </Text>
+      </View> */}
 
-    return (
-        <View style={styles.container}>
-            
-            <Text style={styles.texto}>
-              E-mail: {E_mail}
-            </Text>
-            <Text style={styles.texto}>
-               Senha: {Senha}
-            </Text>
-        </View>    
-)
-}
+      <View style={styles.conteudo}>
+
+        <View style={styles.containerTexto}>
+          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
+          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
+          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
+        </View>
+
+        <View style={styles.containerImage}>
+          <Image
+            source={require('../../../assets/maps.png')} />
+        </View>
+
+      </View>
+      <View style={styles.conteudoOff}>
+        <View style={styles.containerTexto}>
+          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
+          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
+          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
+        </View>
+
+        <View style={styles.containerImage}>
+          <Image
+            source={require('../../../assets/maps.png')} />
+        </View>
+      </View>
+
+      <View style={styles.conteudoOff}>
+        <View style={styles.containerTexto}>
+          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
+          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
+          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
+        </View>
+
+        <View style={styles.containerImage}>
+          <Image
+            source={require('../../../assets/maps.png')} />
+        </View>
+      </View>
+
+      <View style={styles.conteudoOff}>
+        <View style={styles.containerTexto}>
+          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
+          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
+          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
+        </View>
+
+        <View style={styles.containerImage}>
+          <Image
+            source={require('../../../assets/maps.png')} />
+        </View>
+      </View>
+
+      <View style={styles.conteudoOff}>
+        <View style={styles.containerTexto}>
+          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
+          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
+          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
+        </View>
+
+        <View style={styles.containerImage}>
+          <Image
+            source={require('../../../assets/maps.png')} />
+        </View>
+      </View>
+
+    </View>
+  )
+};
