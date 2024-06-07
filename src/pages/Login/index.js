@@ -10,10 +10,13 @@ export default function Login({navigation}) {
 }
 
     function acessHome() {
+        if (email === '' || password === '') {
+            setErrorMessage('Por favor, preencha todos os campos!');
+        }else{
         navigation.navigate(
             'Home',
             {E_mail: email, Senha: password}
-    );
+         )};
 }
 
 
@@ -27,9 +30,6 @@ export default function Login({navigation}) {
         campoEmail = email;
         campoSenha = password;
 
-        if (email === '' || password === '') {
-            setErrorMessage('Por favor, preencha todos os campos!');
-        }
     }
 
 

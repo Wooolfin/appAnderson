@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Text, TextInput, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './styles';
 
 export default function Registration({navigation}) {
 
     function acessHome() {
-        navigation.navigate('Home');
+        
+        if (nome === '' || data === '' || telefone === '' || email === '' || password === '' || validPassword === '') {
+            setErrorMessage('Por favor, preencha todos os campos!');
+        }else{
+        navigation.navigate('Home')
+        };
 }
 
     const [nome, setNome] = useState('');
@@ -32,16 +36,13 @@ export default function Registration({navigation}) {
         campoSenha = password;
         campoConfirmSenha = validPassword;
 
-        if (nome === '' || data === '' || telefone === '' || email === '' || password === '' || validPassword === '') {
-            setErrorMessage('Por favor, preencha todos os campos!');
-        }
     }
 
 
     return (
         <ScrollView>
-            <View style={styles.container}>
-                <Image style={styles.imagem} source={require('./../../../assets/image2.png')}/>
+        <View style={styles.container}>
+                <Image source={require('./../../../assets/image2.png')}/>
 
                 <Text style={styles.textCampoDigitavel}>
                     Nome completo
@@ -116,7 +117,7 @@ export default function Registration({navigation}) {
                     </Text>
                 </TouchableOpacity>
 
-            </View>
-            </ScrollView>
+              </View>
+              </ScrollView>  
     )
 };

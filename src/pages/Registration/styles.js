@@ -11,9 +11,8 @@ export default StyleSheet.create({
         gap: 2
     },
     imagem: {
-        marginBottom: 25,
-        marginTop: 24,
-        height: 30
+        
+        height: 12
     },
     texto: {
         color: "#000",
