@@ -13,6 +13,10 @@ export default function Registration({navigation}) {
         };
 }
 
+    function acessLogin(){
+        navigation.navigate('Login')
+    }
+
     const [nome, setNome] = useState('');
     const [data, setData] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -106,8 +110,15 @@ export default function Registration({navigation}) {
                     secureTextEntry={true}
                     onChangeText={(text) => setValidPassword(text)} />
 
-
                 <Text>{errorMessage}</Text>
+
+                <TouchableOpacity
+                onPress={acessLogin} 
+                style={styles.eSenha}>
+                <Text style={styles.textoeSenha}>
+                    Já possui uma conta?
+                </Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.button}

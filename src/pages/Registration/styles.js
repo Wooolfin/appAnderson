@@ -59,5 +59,10 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         bottom: 8,
         paddingTop: 10,
-    }
+    },
+    textoeSenha: {
+        textDecorationLine: "underline",
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
 });
