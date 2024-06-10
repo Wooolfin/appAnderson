@@ -3,6 +3,11 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 export default function DeliveryList({ route, navigation }) {
+
+    function acessHome(){
+    navigation.navigate('Home');
+    }
+
     return (
         <View style={styles.mainContainer}>
             <View style={styles.containerHeader}>
@@ -39,22 +44,26 @@ export default function DeliveryList({ route, navigation }) {
 
                 </TouchableOpacity>
 
+                <View style={styles.bodyContainer2}>
+
                 <TouchableOpacity
-                    style={styles.button}
+                style={styles.button2}
                 >
-                    <Text style={styles.textButton}>
+                    <Text style={styles.textButton}
+                    onPress={acessHome}>
                         Voltar
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={styles.button}
-                >
+                style={styles.button2}>
                     <Text style={styles.textButton}>
                         Proxima
                     </Text>
                 </TouchableOpacity>
 
+                </View>
+                
             </View>
         </View>
     )

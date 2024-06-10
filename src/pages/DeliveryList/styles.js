@@ -24,21 +24,42 @@ export default StyleSheet.create({
       bodyContainer:{
         backgroundColor: '#CD2424',
         height: "100%",
+        width: "100%",
+        
+      },
+
+      bodyContainer2:{
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        paddingHorizontal: 20, 
+        backgroundColor: '#CD2424',
+        height: "100%",
         width: "100%"
       },
+
       button: {
         borderWidth: 3,
         borderColor: '#B2A7A7',
         backgroundColor: "#F4F3F3",
         borderRadius: 8,
         alignItems: 'center',
-        width: 331,
+        width: 314,
         height: 40,
-        marginBottom: 10
-
+        marginBottom: 10,
+        marginLeft: 20,
     },
+    button2: {
+      width: 150,
+      height: 40,
+      borderWidth: 3,
+      borderColor: '#B2A7A7',
+      backgroundColor: "#F4F3F3",
+      borderRadius: 8,
+      alignItems: 'center',
+      marginBottom: 10
+  },
     textButton:{
-      color: 'red',
+      color: '#AB2020',
       fontSize: 30,
       fontWeight: 'bold'
     },

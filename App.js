@@ -21,10 +21,20 @@ export default function App() {
            source={require('./assets/FHicone.png')}
         />),
         headerTitleAlign: 'center',
+        headerLeft:null
         }}
         />
         
-        <Stack.Screen name="DeliveryList" component={DeliveryList}/>
+        <Stack.Screen name="DeliveryList" component={DeliveryList}  options={{ headerTitle: () => 
+        (<Image
+           style={{width:60,height:40}}
+           source={require('./assets/FHicone.png')}
+        />),
+        headerTitleAlign: 'center',
+        headerLeft:null
+        }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
