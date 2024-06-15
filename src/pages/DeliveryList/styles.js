@@ -30,11 +30,11 @@ export default StyleSheet.create({
 
       bodyContainer2:{
         flexDirection: 'row', 
-        justifyContent: 'space-between', 
         paddingHorizontal: 20, 
         backgroundColor: '#CD2424',
         height: "100%",
-        width: "100%"
+        width: "100%",
+        columnGap: 15
       },
 
       button: {
@@ -56,7 +56,7 @@ export default StyleSheet.create({
       backgroundColor: "#F4F3F3",
       borderRadius: 8,
       alignItems: 'center',
-      marginBottom: 10
+      marginBottom: 10,
   },
     textButton:{
       color: '#AB2020',
