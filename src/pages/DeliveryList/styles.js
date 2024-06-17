@@ -57,7 +57,22 @@ export default StyleSheet.create({
       borderRadius: 8,
       alignItems: 'center',
       marginBottom: 10,
+      
   },
+  box: {
+    borderWidth: 3,
+    borderColor: '#B2A7A7',
+    backgroundColor: "#F4F3F3",
+    borderRadius: 8,
+    alignItems: 'center',
+    width: 314,
+    height: 40,
+    marginBottom: 10,
+    marginLeft: 20,
+    color: '#000000',
+    fontSize: 23,
+    fontWeight: 'bold'
+},
     textButton:{
       color: '#AB2020',
       fontSize: 30,

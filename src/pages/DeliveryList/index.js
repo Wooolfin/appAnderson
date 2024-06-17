@@ -1,10 +1,17 @@
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Picker } from 'react-native';
 import styles from './styles';
+import { useState } from 'react';
 
 export default function DeliveryList({ route, navigation }) {
 
+    const [ocorrencia, setocorrencia] = useState();
+
     function acessHome(){
     navigation.navigate('Home');
+    }
+
+    function Entrega(){
+        
     }
 
     return (
@@ -27,24 +34,28 @@ export default function DeliveryList({ route, navigation }) {
                     source={require('../../../assets/image 5.png')} />
 
                 <TouchableOpacity
-                    style={styles.button}
-                >
+                    style={styles.button}>
                     <Text style={styles.textButton}>
                         Entregar
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={styles.button}
+                <Picker
+                ocorrencia={ocorrencia}
+                onValueChange={(itemValue, itemIndex) =>
+                setocorrencia(itemValue)
+                }
+                style={styles.box}
                 >
-                    <Text style={styles.textButton}>
-                        Ocorrencia
-                    </Text>
-
-                </TouchableOpacity>
+                <Picker.Item label="Ausente" value="ausente"/>
+                <Picker.Item label="Caixa Postal" value="caixaPostal" />
+                <Picker.Item label="Endereço Não Localizado" value="semEndereco"/>
+                <Picker.Item label="Numero Não Locazaiado" value="semNumero"/>
+                <Picker.Item label="Endereço Zona Rural" value="zonaRural"/>
+                <Picker.Item label="Solicitação Entrega Fatura " value="entregaFatura"/>
+                </Picker>
 
                 <View style={styles.bodyContainer2}>
-
                 <TouchableOpacity
                 style={styles.button2}
                 >
@@ -60,7 +71,6 @@ export default function DeliveryList({ route, navigation }) {
                         Proxima
                     </Text>
                 </TouchableOpacity>
-
                 </View>
                 
             </View>
