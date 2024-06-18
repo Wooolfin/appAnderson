@@ -64,5 +64,9 @@ export default StyleSheet.create({
         textDecorationLine: "underline",
         fontWeight: 'bold',
         fontSize: 16,
-    },
+    }, 
+    scrollView: {
+        marginHorizontal: 20,
+        padding: 10,
+      },
 });

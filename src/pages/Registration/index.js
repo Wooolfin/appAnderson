@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import apiMockApi from "../../services/MockApi";
 import { Text, TextInput, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './styles';
+import { Header } from '@react-navigation/stack';
 
 export default function Registration({navigation}) {
 
@@ -25,26 +27,31 @@ export default function Registration({navigation}) {
     const [validPassword, setValidPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleRegister = () => {
-        let campoNome;
-        let campoData;
-        let campoTelefone;
-        let campoEmail;
-        let campoSenha;
-        let campoConfirmSenha;
+    function novaConta(){
+        if (nome === '' || data === '' || telefone === '' || email === '' || password === '' || validPassword === '') {
+            setErrorMessage('Por favor, preencha todos os campos!');
+        }else{
+        let dados = {
+                "nome": nome,
+                "data": data,
+                "telefone": telefone,
+                "email": email,
+                "password": password,
+            };
+        
+        apiMockApi.post('BancoDeDados', dados)
+                 .then(response => {
+                    if(response.status == 201){
+                        alert("Conta criada");
+                    }else{
+                        alert("Erro ao criar! Tente novamente...");
+                    }
 
-        campoNome = nome;
-        campoData = data;
-        campoTelefone = telefone;
-        campoEmail = email;
-        campoSenha = password;
-        campoConfirmSenha = validPassword;
-
-    }
-
+                 });
+                 navigation.navigate('Home')
+    }}
 
     return (
-        <ScrollView>
         <View style={styles.container}>
                 <Image source={require('./../../../assets/image2.png')}/>
 
@@ -122,13 +129,11 @@ export default function Registration({navigation}) {
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={acessHome}>
+                    onPress={novaConta}>
                     <Text style={styles.textoButton}>
                         Cadastrar
                     </Text>
                 </TouchableOpacity>
-
-              </View>
-              </ScrollView>  
+        </View>            
     )
 };
