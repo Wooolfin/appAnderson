@@ -2,18 +2,8 @@ import { useState } from 'react';
 import apiMockApi from "../../services/MockApi";
 import { Text, TextInput, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import styles from './styles';
-import { Header } from '@react-navigation/stack';
 
 export default function Registration({navigation}) {
-
-    function acessHome() {
-        
-        if (nome === '' || data === '' || telefone === '' || email === '' || password === '' || validPassword === '') {
-            setErrorMessage('Por favor, preencha todos os campos!');
-        }else{
-        navigation.navigate('Home')
-        };
-}
 
     function acessLogin(){
         navigation.navigate('Login')

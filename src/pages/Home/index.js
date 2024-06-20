@@ -3,21 +3,22 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 
-export default function Home({ navigation }) {
+export default function Home({ route, navigation }) {
 
   function acessDeliveryList() {
     navigation.navigate('DeliveryList');
   }
   return (
     <View style={styles.container}>
-      {/* <View>
+      
+       {/*<View>
         <Text style={styles.textoDefault}>
           E-mail: {E_mail}
         </Text>
         <Text style={styles.textoDefault}>
           Senha: {Senha}
         </Text>
-      </View> */}
+      </View>*/} 
 
       <View style={styles.conteudo}>
 

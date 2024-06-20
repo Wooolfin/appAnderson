@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { TextInput, View, TouchableOpacity, Text, Image} from 'react-native';
 import styles from './styles';
+import apiMockApi from "../../services/MockApi";
 
-
-export default function Login({navigation}) {
+export default function Login({ navigation}) {
 
     function acessRegistration() {
         navigation.navigate('Registration');
@@ -15,8 +15,17 @@ export default function Login({navigation}) {
         }else{
         navigation.navigate(
             'Home',
-            {E_mail: email, Senha: password}
-         )};
+         )
+         /*
+         apiMockApi
+         .get('BancoDeDados')
+         .then(response => {
+             if(response.status == 200){
+                 let dados = response.data;
+                 setPassword(dados.password);
+             }
+         });?*/
+        };
 }
 
 
@@ -24,13 +33,6 @@ export default function Login({navigation}) {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleLogin = () => {
-        let campoEmail;
-        let campoSenha;
-        campoEmail = email;
-        campoSenha = password;
-
-    }
 
 
     return (
@@ -47,14 +49,15 @@ export default function Login({navigation}) {
                 style={styles.input}
                 placeholder="Usuário"
                 keyboardType='default'
-                onChangeText={(text) => setEmail(text)} />
+                onChangeText={(email) => setEmail(email)} />
 
             <TextInput
                 value={password}
                 style={styles.input}
                 placeholder="Senha"
-                secureTextEntry={true}
-                onChangeText={(text) => setPassword(text)}
+                secureTextEntry={false}
+                data={password}
+                onChangeText={(password) => setPassword(password)}
             />
 
             <Text>{errorMessage}</Text>
