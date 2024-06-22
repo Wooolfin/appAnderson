@@ -7,30 +7,14 @@ import Registration from './src/pages/Registration';
 import Home from './src/pages/Home';
 import DeliveryList from './src/pages/DeliveryList';
 
-
 const Stack = createStackNavigator();
-
-function acessLogin() {
-
-}
-
 
 export default function App( ) {
 
-  const ConfigHeader = () => {
-    return (
-      <TouchableOpacity onPress={acessLogin} style={{ paddingLeft: 10 }}>
-        <Image
-          style={{ width: 30, height: 30 }}
-          source={require('./assets/Config.png')}
-        />
-      </TouchableOpacity>
-    );
-  };
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Registration" component={Registration} options={{ headerShown: false }} />
 

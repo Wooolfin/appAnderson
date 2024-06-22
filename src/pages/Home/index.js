@@ -1,97 +1,60 @@
-import { useState } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
-import styles from './styles';
+import { View, FlatList, Text, TouchableOpacity,Image } from "react-native"
+import apiMockApi from "../../services/MockApi";
+import { useEffect, useState } from "react";
+import styles from "./styles";
 
+export default function MeusEnderecos({ navigation }) {
 
-export default function Home({ route, navigation }) {
+  const [lista, setLista] = useState();
 
-  function acessDeliveryList() {
+  function consultarEnderecos() {
+
+    apiMockApi
+      .get('entregas')
+      .then(response => {
+        if (response.status == 200) {
+
+          setLista(response.data);
+
+        }
+      });
+  }
+
+  function acessDelivery() {
     navigation.navigate('DeliveryList');
   }
-  
+
+  useEffect(() => {
+    consultarEnderecos();
+  });
+
   return (
-
     <View style={styles.container}>
-
       <View style={styles.header}>
         <TouchableOpacity>
+          <Image
+            style={styles.config}
+            source={require('../../../assets/Config.png')}
+          />
+        </TouchableOpacity>
         <Image
-        style={styles.config}
-        source={require('../../../assets/Config.png')}
-        />
-        </TouchableOpacity>
-       <Image
-        style={styles.Image}
-        source={require('../../../assets/FHicone.png')}/>
+          style={styles.Image}
+          source={require('../../../assets/FHicone.png')} />
       </View>
-      <View style={styles.conteudo}>
-
-        <TouchableOpacity style={styles.containerTexto}
-        onPress={acessDeliveryList}
-        >
-          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
-          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
-          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
-        </TouchableOpacity>
-
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../../../assets/maps.png')} />
-        </View>
-
-      </View>
-      <View style={styles.conteudoOff}>
-        <View style={styles.containerTexto}>
-          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
-          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
-          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
-        </View>
-
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../../../assets/maps.png')} />
-        </View>
-      </View>
-
-      <View style={styles.conteudoOff}>
-        <View style={styles.containerTexto}>
-          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
-          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
-          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
-        </View>
-
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../../../assets/maps.png')} />
-        </View>
-      </View>
-
-      <View style={styles.conteudoOff}>
-        <View style={styles.containerTexto}>
-          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
-          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
-          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
-        </View>
-
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../../../assets/maps.png')} />
-        </View>
-      </View>
-
-      <View style={styles.conteudoOff}>
-        <View style={styles.containerTexto}>
-          <Text style={styles.textoConteudo}>OS 23023 - Hilary Duarte</Text>
-          <Text style={styles.textoConteudo}>Rua: Newto Rosa 141,  Itapeva II</Text>
-          <Text style={styles.textoConteudo} >Tel: (15)89998552</Text>
-        </View>
-
-        <View style={styles.containerImage}>
-          <Image
-            source={require('../../../assets/maps.png')} />
-        </View>
-      </View>
+      <FlatList
+        data={lista}
+        keyExtractor={(item) => item.id}
+        renderItem={
+          ({ item }) => (
+            <View style={styles.conteudo}>
+              <TouchableOpacity onPress={acessDelivery}>
+                <Text style={styles.textoConteudo}>OS 23023 - {item.nome}</Text>
+                <Text style={styles.textoConteudo}>{item.endereco}</Text>
+                <Text style={styles.textoConteudo}>Tel: {item.telefone}</Text>
+              </TouchableOpacity>
+            </View>
+          )} />
 
     </View>
-  )
-};
+  );
+}

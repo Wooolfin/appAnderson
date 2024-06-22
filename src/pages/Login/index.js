@@ -13,9 +13,7 @@ export default function Login({ navigation}) {
         if (email === '' || password === '') {
             setErrorMessage('Por favor, preencha todos os campos!');
         }else{
-        navigation.navigate(
-            'Home',
-         )
+        navigation.navigate('Home')
          /*
          apiMockApi
          .get('BancoDeDados')

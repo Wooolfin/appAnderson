@@ -37,12 +37,11 @@ export default StyleSheet.create({
     },
     conteudo: {
         backgroundColor: '#CD2424',
-        flexDirection: 'row',
         height: 101,
-        width: 354,
+        width: 332,
         borderRadius: 8,
-        marginBottom: 5,
-        marginTop: 28
+        marginBottom: 8,
+        marginTop: 8
     },
     conteudoOff: {
         backgroundColor: '#B1B1B1',
