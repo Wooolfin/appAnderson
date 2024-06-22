@@ -11,11 +11,7 @@ import DeliveryList from './src/pages/DeliveryList';
 const Stack = createStackNavigator();
 
 function acessLogin() {
-   
-  <View style={{height: '100%', width: 70}}>
-    
 
-  </View>
 }
 
 
@@ -41,31 +37,13 @@ export default function App( ) {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitle: () => (
-              <Image
-                style={{ width: 60, height: 40 }}
-                source={require('./assets/FHicone.png')}
-              />
-            ),
-            headerLeft: () => ConfigHeader(), 
-          }}
+          options={{ headerShown: false}}
         />
 
         <Stack.Screen
           name="DeliveryList"
           component={DeliveryList}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitle: () => (
-              <Image
-                style={{ width: 60, height: 40 }}
-                source={require('./assets/FHicone.png')}
-              />
-            ),
-            headerLeft: () => ConfigHeader(), 
-          }}
+          options={{ headerShown: false}}
         />
 
       </Stack.Navigator>

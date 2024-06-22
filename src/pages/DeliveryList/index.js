@@ -16,6 +16,17 @@ export default function DeliveryList({ route, navigation }) {
 
     return (
         <View style={styles.mainContainer}>
+            <View style={styles.header}>
+        <TouchableOpacity >
+        <Image
+        style={styles.config}
+        source={require('../../../assets/Config.png')}
+        />
+        </TouchableOpacity>
+       <Image
+        style={styles.Image}
+        source={require('../../../assets/FHicone.png')}/>
+      </View>
             <View style={styles.containerHeader}>
                 <Text style={styles.textoHeader}>
                     OS - 23023

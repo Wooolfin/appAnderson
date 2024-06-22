@@ -55,7 +55,7 @@ export default function Login({ navigation}) {
                 value={password}
                 style={styles.input}
                 placeholder="Senha"
-                secureTextEntry={false}
+                secureTextEntry={true}
                 data={password}
                 onChangeText={(password) => setPassword(password)}
             />

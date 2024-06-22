@@ -6,12 +6,31 @@ export default StyleSheet.create({
         backgroundColor: '#FBFBFB',
         alignItems: 'center',
     },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 60,
+        width: '100%'
+    },
+    Image: {
+        width: 60,
+        height: 40,
+        marginTop: 10,
+        marginRight: '40%'
+    },
+    config: {
+        width: 40,
+        height: 40,
+        marginTop: 10,
+
+    },
     textoDefault: {
         color: "#000",
         fontSize: 16,
         fontWeight: 'bold',
     },
-    textoConteudo:{
+    textoConteudo: {
         color: "#FFFFFF",
         marginLeft: 13,
         marginTop: 9
@@ -33,16 +52,14 @@ export default StyleSheet.create({
         borderRadius: 8,
         marginBottom: 5
     },
-    mapImage:{
-    },
-    containerTexto:{
+    containerTexto: {
         width: '70%',
         height: 100
     },
-    containerImage:{
+    containerImage: {
         width: '30%',
         height: 100
-    }, 
+    },
     button: {
         borderWidth: 3,
         borderColor: '#921818',

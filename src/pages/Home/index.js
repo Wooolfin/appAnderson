@@ -8,18 +8,22 @@ export default function Home({ route, navigation }) {
   function acessDeliveryList() {
     navigation.navigate('DeliveryList');
   }
+  
   return (
-    <View style={styles.container}>
-      
-       {/*<View>
-        <Text style={styles.textoDefault}>
-          E-mail: {E_mail}
-        </Text>
-        <Text style={styles.textoDefault}>
-          Senha: {Senha}
-        </Text>
-      </View>*/} 
 
+    <View style={styles.container}>
+
+      <View style={styles.header}>
+        <TouchableOpacity>
+        <Image
+        style={styles.config}
+        source={require('../../../assets/Config.png')}
+        />
+        </TouchableOpacity>
+       <Image
+        style={styles.Image}
+        source={require('../../../assets/FHicone.png')}/>
+      </View>
       <View style={styles.conteudo}>
 
         <TouchableOpacity style={styles.containerTexto}
