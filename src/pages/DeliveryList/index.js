@@ -6,33 +6,36 @@ export default function DeliveryList({ route, navigation }) {
 
     const [ocorrencia, setocorrencia] = useState();
 
-    function acessHome(){
-    navigation.navigate('Home');
-    }
+    const [showSidebar, setShowSidebar] = useState(false);
+    const configs = () => { setShowSidebar(!showSidebar); };
+    const hideSidebar = () => { setShowSidebar(false); };
 
-    function Entrega(){
-        
+    function logout() {
+        navigation.navigate('Login')
+    }
+    function acessHome() {
+        navigation.navigate('Home');
     }
 
     return (
-        <View style={styles.mainContainer}>
+        <View style={styles.mainContainer} onStartShouldSetResponder={hideSidebar}>
             <View style={styles.header}>
-        <TouchableOpacity >
-        <Image
-        style={styles.config}
-        source={require('../../../assets/Config.png')}
-        />
-        </TouchableOpacity>
-       <Image
-        style={styles.Image}
-        source={require('../../../assets/FHicone.png')}/>
-      </View>
+                <TouchableOpacity onPress={configs}>
+                    <Image
+                        style={styles.config}
+                        source={require('../../../assets/Config.png')}
+                    />
+                </TouchableOpacity>
+                <Image
+                    style={styles.Image}
+                    source={require('../../../assets/FHicone.png')} />
+            </View>
             <View style={styles.containerHeader}>
                 <Text style={styles.textoHeader}>
                     OS - 23023
                 </Text>
             </View>
-
+        
             <View style={styles.bodyContainer}>
                 <Text style={styles.textoConteudo}>Nome:</Text>
                 <Text style={styles.textoConteudo}>Hilary Duart</Text>
@@ -52,39 +55,63 @@ export default function DeliveryList({ route, navigation }) {
                 </TouchableOpacity>
 
                 <Picker
-                ocorrencia={ocorrencia}
-                onValueChange={(itemValue, itemIndex) =>
-                setocorrencia(itemValue)
-                }
-                style={styles.box}
+                    ocorrencia={ocorrencia}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setocorrencia(itemValue)
+                    }
+                    style={styles.box}
                 >
-                <Picker.Item label="Ausente" value="ausente"/>
-                <Picker.Item label="Caixa Postal" value="caixaPostal" />
-                <Picker.Item label="Endereço Não Localizado" value="semEndereco"/>
-                <Picker.Item label="Numero Não Locazaiado" value="semNumero"/>
-                <Picker.Item label="Endereço Zona Rural" value="zonaRural"/>
-                <Picker.Item label="Solicitação Entrega Fatura " value="entregaFatura"/>
+                    <Picker.Item label="Ausente" value="ausente" />
+                    <Picker.Item label="Caixa Postal" value="caixaPostal" />
+                    <Picker.Item label="Endereço Não Localizado" value="semEndereco" />
+                    <Picker.Item label="Numero Não Locazaiado" value="semNumero" />
+                    <Picker.Item label="Endereço Zona Rural" value="zonaRural" />
+                    <Picker.Item label="Solicitação Entrega Fatura " value="entregaFatura" />
                 </Picker>
 
                 <View style={styles.bodyContainer2}>
-                <TouchableOpacity
-                style={styles.button2}
-                >
-                    <Text style={styles.textButton}
-                    onPress={acessHome}>
-                        Voltar
-                    </Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.button2}
+                    >
+                        <Text style={styles.textButton}
+                            onPress={acessHome}>
+                            Voltar
+                        </Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity
-                style={styles.button2}>
-                    <Text style={styles.textButton}>
-                        Proxima
-                    </Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.button2}>
+                        <Text style={styles.textButton}>
+                            Proxima
+                        </Text>
+                    </TouchableOpacity>
                 </View>
-                
             </View>
+                {showSidebar && (
+                    <View style={styles.sidebar}>
+                        <View style={styles.sidebar2}>
+                            <Image
+                                style={styles.usuario}
+                                source={require('../../../assets/usuario.png')} />
+                            <Text style={styles.sidebarText2}>Flavio Castellar</Text>
+                        </View>
+
+                        <TouchableOpacity>
+                            <Text style={styles.sidebarText}>Perfil</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text style={styles.sidebarText}>Configurações</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.btnSair} onPress={logout}>
+                            <Image
+                                style={styles.sair}
+                                source={require('../../../assets/sair.png')} />
+                            <Text style={styles.textSair}>Sair</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                )}
         </View>
     )
 }
