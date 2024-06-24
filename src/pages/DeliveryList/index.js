@@ -10,6 +10,8 @@ export default function DeliveryList({ route, navigation }) {
     const configs = () => { setShowSidebar(!showSidebar); };
     const hideSidebar = () => { setShowSidebar(false); };
 
+    const { item } = route.params;
+
     function logout() {
         navigation.navigate('Login')
     }
@@ -38,11 +40,11 @@ export default function DeliveryList({ route, navigation }) {
         
             <View style={styles.bodyContainer}>
                 <Text style={styles.textoConteudo}>Nome:</Text>
-                <Text style={styles.textoConteudo}>Hilary Duart</Text>
+                <Text style={styles.textoConteudo}>{item.nome}</Text>
                 <Text style={styles.textoConteudo}>Endereço:</Text>
-                <Text style={styles.textoConteudo}>Rua: Newto Rosa 142,  Itapeva II</Text>
+                <Text style={styles.textoConteudo}>{item.endereco}</Text>
                 <Text style={styles.textoConteudo}>Telefone:</Text>
-                <Text style={styles.textoConteudo}>Tel: 1589998552</Text>
+                <Text style={styles.textoConteudo}>Tel: {item.telefone}</Text>
                 <Image
                     style={styles.imagem}
                     source={require('../../../assets/image 5.png')} />

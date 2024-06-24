@@ -26,8 +26,8 @@ export default function MeusEnderecos({ navigation }) {
   function logout() {
     navigation.navigate('Login')
   }
-  function acessDelivery() {
-    navigation.navigate('DeliveryList');
+  function acessDelivery(item) {
+    navigation.navigate('DeliveryList', { item });
   }
 
   useEffect(() => {
@@ -41,15 +41,15 @@ export default function MeusEnderecos({ navigation }) {
         <TouchableOpacity onPress={configs}>
           <Image
             style={styles.config}
-            source={require('../../../assets/Config.png')} />
+            source={require('../../../assets/Config.png')}/>
         </TouchableOpacity>
         <Image
           style={styles.Image}
-          source={require('../../../assets/FHicone.png')} />
+          source={require('../../../assets/FHicone.png')}/>
       </View>
       <View>
         <Image
-          source={require('../../../assets/Line.png')} s />
+          source={require('../../../assets/Line.png')}/>
       </View>
 
       <FlatList
@@ -58,7 +58,7 @@ export default function MeusEnderecos({ navigation }) {
         renderItem={
           ({ item }) => (
             <View style={styles.conteudo}>
-              <TouchableOpacity onPress={acessDelivery}>
+              <TouchableOpacity onPress={() => acessDelivery(item)}>
                 <Text style={styles.textoConteudo}>OS 23023 - {item.nome}</Text>
                 <Text style={styles.textoConteudo}>{item.endereco}</Text>
                 <Text style={styles.textoConteudo}>Tel: {item.telefone}</Text>
